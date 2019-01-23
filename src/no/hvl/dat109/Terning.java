@@ -20,6 +20,8 @@ public class Terning {
         terning[3] = gris;
         terning[4] = elefant;
         terning[5] = hval;
+
     }
+
 
 }
