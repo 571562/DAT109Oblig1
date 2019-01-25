@@ -22,9 +22,6 @@ public class Terning {
         terning[4] = elephant;
         terning[5] = whale;
 
-        System.out.println("hei");
-
-
     }
 
 
