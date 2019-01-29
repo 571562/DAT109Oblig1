@@ -1,5 +1,11 @@
 package no.hvl.dat109;
 
+import java.util.Random;
+
+/*
+    @author Herborg Irgens Sjo
+ */
+
 public class Terning {
 
     public Dyr[] terning;
@@ -24,5 +30,10 @@ public class Terning {
 
     }
 
+    public Dyr TrillTerning () {
+        Random ran = new Random();
+        int resultat = ran.nextInt(6);
+        return terning[resultat];
+    }
 
 }
