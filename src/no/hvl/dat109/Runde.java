@@ -13,4 +13,20 @@ public class Runde {
         id = rundeid;
         tekstbeskriving = beskriving;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getTekstbeskriving() {
+        return tekstbeskriving;
+    }
+
+    public void setTekstbeskriving(String tekstbeskriving) {
+        this.tekstbeskriving = tekstbeskriving;
+    }
 }

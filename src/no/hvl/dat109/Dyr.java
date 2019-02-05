@@ -29,4 +29,8 @@ public class Dyr {
         return id;
     }
 
+    @Override
+    public String toString() {
+        return farge + " " + namn;
     }
+}

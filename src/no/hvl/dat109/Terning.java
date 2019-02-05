@@ -10,12 +10,12 @@ public class Terning {
 
     public Dyr[] terning;
 
-    private Dyr lion = new Dyr("Løve", "oransje", 1);
-    private Dyr snake = new Dyr("Slange", "grønn", 2);
-    private Dyr panda = new Dyr("Panda", "svart", 3);
-    private Dyr pig = new Dyr("Gris", "rosa", 4);
-    private Dyr elephant = new Dyr("Elefant", "grå", 5);
-    private Dyr whale = new Dyr("Hval", "blå", 6);
+    private Dyr lion = new Dyr("Løve", "Oransje", 1);
+    private Dyr snake = new Dyr("Slange", "Grøn", 2);
+    private Dyr panda = new Dyr("Panda", "Svart", 3);
+    private Dyr pig = new Dyr("Gris", "Rosa", 4);
+    private Dyr elephant = new Dyr("Elefant", "Grå", 5);
+    private Dyr whale = new Dyr("Hval", "Blå", 6);
 
 
     public Terning() {

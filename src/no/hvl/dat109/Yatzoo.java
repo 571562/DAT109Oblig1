@@ -9,11 +9,38 @@ public class Yatzoo {
     public Terning terning;
     public ArrayList<Dyr> terningresultat;
     private Scanner reader = new Scanner(System.in);
+    private Brett blokk;
+    public Spelar[] spelarar;
 
-    public Yatzoo() {
-        runde = 0;
+    public Yatzoo(Spelar[] spelarar) {
+        runde = 1;
         terning = new Terning();
         terningresultat = new ArrayList<Dyr>();
+        blokk = new Brett(spelarar);
+        this.spelarar = spelarar;
+    }
+
+    public void spel(int i) {
+        while (runde <= i) {
+            spelRunde();
+        }
+
+        for (Spelar s : spelarar) {
+            summerPoeng(s);
+        }
+        finnVinner();
+    }
+
+    public void spelRunde() {
+        for (Spelar spiller : spelarar) {
+            System.out.println("\n" + spiller.getNamn() + " sin tur."
+                    + "\nDenne runden skal du ha " + blokk.getRad().getRad()[runde-1].getTekstbeskriving());
+            kastTerning();
+            int resultat = blokk.getRad().rundeSjekk(runde, terningresultat);
+            spiller.getKolonne().oppdaterVerdi(runde, resultat);
+            terningresultat.clear();
+        }
+        runde++;
     }
 
     public void kastTerning() {
@@ -26,7 +53,7 @@ public class Yatzoo {
                 Dyr dyr = terning.TrillTerning();
                 terningresultat.add(dyr);
             }
-            System.out.println("n\Dine terningkast: ");
+            System.out.println("\nDine terningkast: ");
             for(int i = 1; i < 6; i++) {
                 System.out.println(i + ".\t" + terningresultat.get(i-1));
             }
@@ -48,4 +75,68 @@ public class Yatzoo {
             count++;
         }
     }
+
+    public void summerPoeng(Spelar spelarar) {
+        int sum = 0;
+        for (int i : spelarar.getKolonne().getKolonne()) {
+            sum += i;
+        }
+        spelarar.setPoengscore(sum);
+    }
+
+    public void finnVinner() {
+        boolean flereVinnere = false;
+        Spelar vinner = spelarar[0];
+        ArrayList<Spelar> vinnere = new ArrayList<Spelar>();
+        vinnere.add(vinner);
+        for (int i = 1; i < spelarar.length; i++) {
+            if (spelarar[i].getPoengscore() > vinner.getPoengscore()) {
+                vinner = spelarar[i];
+                if (flereVinnere) {
+                    flereVinnere = false;
+                    vinnere.clear();
+                }
+
+            } else if (spelarar[i].getPoengscore() == vinner.getPoengscore()) {
+                flereVinnere = true;
+                vinnere.add(spelarar[i]);
+            }
+
+        }
+
+        System.out.println("\nResultatliste:");
+
+        for (Spelar s : spelarar) {
+            System.out.println(s.getNamn() + "\t:\t" + s.getPoengscore() + "p");
+        }
+        if (flereVinnere) {
+            System.out.print("\nDet er fleire spelarar med like stor poengsum som delar 1. plassen.\nGratulerar");
+            for (Spelar s : vinnere) {
+                System.out.print("  " + s.getNamn());
+            }
+            System.out.println("!");
+        } else {
+            System.out.println("Gratulerar " + vinner.getNamn() + "! Du har vunnet spelet!");
+        }
+    }
+
+    public int getRunde() {
+        return runde;
+    }
+
+    public ArrayList<Dyr> getTerningkast() {
+        return terningresultat;
+    }
+
+    public Brett getBlokk() {
+        return blokk;
+    }
+
+
+
+
+
+
+
+
 }
