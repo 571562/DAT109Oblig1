@@ -17,7 +17,7 @@ public class Rad {
     private Runde runde3 = new Runde(3 ,"Pandaer");
     private Runde runde4 = new Runde(4 ,"Griser");
     private Runde runde5 = new Runde(5 ,"Elefanter");
-    private Runde runde6 = new Runde(6 ,"Hvaler");
+    private Runde runde6 = new Runde(6 ,"Kvaler");
     private Runde runde7 = new Runde(7 ,"3 like");
     private Runde runde8 = new Runde(8 ,"4 like");
     private Runde runde9 = new Runde(9 ,"2 par");

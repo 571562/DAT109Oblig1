@@ -15,7 +15,7 @@ public class Terning {
     private Dyr panda = new Dyr("Panda", "Svart", 3);
     private Dyr pig = new Dyr("Gris", "Rosa", 4);
     private Dyr elephant = new Dyr("Elefant", "Grå", 5);
-    private Dyr whale = new Dyr("Hval", "Blå", 6);
+    private Dyr whale = new Dyr("Kval", "Blå", 6);
 
 
     public Terning() {
